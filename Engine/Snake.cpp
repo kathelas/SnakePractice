@@ -5,6 +5,7 @@ Snake::Snake()
 	length = 1;
 	segments[0].loc = startloc;
 	segments[0].c = headcolor;
+
 }
 
 void const Snake::Draw( Board& brd )
@@ -13,4 +14,9 @@ void const Snake::Draw( Board& brd )
 	{
 		brd.Draw( segments[i].loc, segments[i].c );
 	}
+}
+
+void Snake::Update( Keyboard & kbd )
+{
+	
 }
