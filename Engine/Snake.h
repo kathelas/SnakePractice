@@ -8,7 +8,7 @@ class Snake
 {
 public:
 	Snake();
-	void Draw( Board& brd );
+	void const Draw( Board& brd );
 
 private:
 	class Segment

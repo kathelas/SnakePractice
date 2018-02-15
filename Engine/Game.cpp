@@ -45,6 +45,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	brd.DrawBorder();
 	snake.Draw( brd );
 	
 }

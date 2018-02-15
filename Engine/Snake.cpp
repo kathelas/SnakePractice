@@ -7,7 +7,7 @@ Snake::Snake()
 	segments[0].c = headcolor;
 }
 
-void Snake::Draw( Board& brd )
+void const Snake::Draw( Board& brd )
 {
 	for( int i = 0; i < length; i++ )
 	{
