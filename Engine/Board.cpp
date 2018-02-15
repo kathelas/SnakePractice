@@ -9,6 +9,11 @@ Board::Board( Graphics& gfx )
 {
 }
 
+void Board::Draw( Location loc, Color c )
+{
+	DrawCell( gfx, loc, c );
+}
+
 
 void Board::DrawCell( Graphics& gfx, Location loc, Color c )
 {

@@ -20,6 +20,8 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include "Colors.h"
+#include "Snake.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -43,6 +45,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	Location loc = { 3, 3 };
-	brd.DrawCell( gfx, loc, Colors::Magenta );
+	snake.Draw( brd );
+	
 }
