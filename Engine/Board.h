@@ -11,7 +11,7 @@ public:
 	void Draw( Location loc, Color c );
 	void DrawBorder();
 private:
-	void DrawCell( Graphics& gfx, Location loc, Color c );
+	void DrawCell( Location loc, Color c );
 	
 
 	struct Border

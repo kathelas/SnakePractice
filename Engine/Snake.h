@@ -10,7 +10,7 @@ class Snake
 public:
 	Snake();
 	void const Draw( Board& brd );
-	void Update( Keyboard& kbd );
+	void Update( const Keyboard& kbd );
 
 private:
 	class Segment

@@ -16,7 +16,7 @@ void const Snake::Draw( Board& brd )
 	}
 }
 
-void Snake::Update( Keyboard & kbd )
+void Snake::Update( const Keyboard& kbd )
 {
 	
 }

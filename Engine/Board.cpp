@@ -11,12 +11,6 @@ Board::Board( Graphics& gfx )
 
 void Board::Draw( Location loc, Color c )
 {
-	DrawCell( gfx, loc, c );
-}
-
-
-void Board::DrawCell( Graphics& gfx, Location loc, Color c )
-{
 	assert( loc.x >= 0 );
 	assert( loc.y >= 0 );
 	assert( loc.x <= width );
@@ -28,9 +22,10 @@ void Board::DrawCell( Graphics& gfx, Location loc, Color c )
 		for( int j = ypos + loc.y * cellsize + padding + brdr.size; j < ypos + loc.y * cellsize + cellsize - padding + brdr.size; j++ )
 		{
 			gfx.PutPixel( i, j, c );
-		}		
+		}
 	}
 }
+
 
 void Board::DrawBorder()
 {
