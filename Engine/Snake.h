@@ -36,8 +36,12 @@ private:
 	static constexpr int maxsegments = 100;
 	static constexpr Color headcolor = Colors::Yellow;
 
+	Color bc1 = { 102, 204, 0 };
+	Color bc2 = { 76, 153, 0 };
+	Color bc3 = { 51, 102, 0 };
 
-	Color bodycolors[4] = { { 102, 204, 0},{ 76, 153, 0 },{ 51, 102, 0 },{ 76, 153, 0 } };
+
+	Color bodycolors[4] = { bc1, bc2, bc3, bc2 };
 
 	int length;
 	bool grow;

@@ -23,25 +23,28 @@ void const Snake::Draw( Board& brd )
 
 void Snake::UpdateMovement( const Keyboard& kbd )
 {
-	if( kbd.KeyIsPressed( VK_UP ) )
+	if( !remkey )
 	{
-		dloc = { 0, -1 };
-		remkey = true;
-	}
-	if( kbd.KeyIsPressed( VK_DOWN ) )
-	{
-		dloc = { 0, 1 };
-		remkey = true;
-	}
-	if( kbd.KeyIsPressed( VK_LEFT ) )
-	{
-		dloc = { -1, 0 };
-		remkey = true;
-	}
-	if( kbd.KeyIsPressed( VK_RIGHT ) )
-	{
-		dloc = { 1, 0 };
-		remkey = true;
+		if( kbd.KeyIsPressed( VK_UP ) )
+		{
+			dloc = { 0, -1 };
+			remkey = true;
+		}
+		if( kbd.KeyIsPressed( VK_DOWN ) )
+		{
+			dloc = { 0, 1 };
+			remkey = true;
+		}
+		if( kbd.KeyIsPressed( VK_LEFT ) )
+		{
+			dloc = { -1, 0 };
+			remkey = true;
+		}
+		if( kbd.KeyIsPressed( VK_RIGHT ) )
+		{
+			dloc = { 1, 0 };
+			remkey = true;
+		}
 	}
 }
 
