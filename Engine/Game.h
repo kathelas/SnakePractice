@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Board.h"
 #include "Snake.h"
+#include "Goal.h"
 
 class Game
 {
@@ -47,4 +48,7 @@ private:
 	/********************************/
 	Board brd;
 	Snake snake;
+	Goal goal;
+
+	bool GameOver;
 };

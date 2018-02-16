@@ -29,18 +29,29 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	brd( gfx )
 {
+	GameOver = false;
 }
 
 void Game::Go()
 {
-	gfx.BeginFrame();	
-	UpdateModel();
-	ComposeFrame();
-	gfx.EndFrame();
+	if( !GameOver )
+	{
+		gfx.BeginFrame();
+		UpdateModel();
+		ComposeFrame();
+		gfx.EndFrame();
+	}
+
 }
 
 void Game::UpdateModel()
 {
+
+	snake.UpdateMovement( wnd.kbd );
+	if( !snake.Move() )
+		GameOver = true;
+
+
 }
 
 void Game::ComposeFrame()
