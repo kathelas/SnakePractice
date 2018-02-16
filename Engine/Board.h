@@ -19,7 +19,7 @@ private:
 	struct Border
 	{
 		static constexpr int size = 10;
-		static constexpr Color c = Colors::Blue;
+		static constexpr Color c = { 0, 102, 204 };
 		static constexpr int padding = 5;
 	};
 	

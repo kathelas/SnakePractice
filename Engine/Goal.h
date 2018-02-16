@@ -15,7 +15,7 @@ public:
 
 private:
 	Location loc;
-	Color c = Colors::Red;
+	Color c = { 204, 102, 0 };
 
 	std::mt19937 rnd;
 	std::uniform_int_distribution<int> xdis;

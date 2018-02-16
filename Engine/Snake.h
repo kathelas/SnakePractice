@@ -30,18 +30,22 @@ private:
 	};
 
 	const bool Inside( Location loc );
+	const bool InsideSelf();
 
 	static constexpr Location startloc = { 0, 0 };
 	static constexpr int maxsegments = 100;
-	static constexpr Color headcolor = Colors::Green;
+	static constexpr Color headcolor = Colors::Yellow;
 
 
-	Color bodycolors[4] = { { 0, 153, 0},{ 0, 102, 0 },{ 0, 153, 0 },{ 0, 204, 0 } };
+	Color bodycolors[4] = { { 102, 204, 0},{ 76, 153, 0 },{ 51, 102, 0 },{ 76, 153, 0 } };
 
 	int length;
+	bool grow;
+	float speed;
 
 	Location dloc;
 	int movecounter;
+	bool remkey;
 
 	Segment segments[100];
 
