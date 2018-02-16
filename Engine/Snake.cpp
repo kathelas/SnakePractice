@@ -53,7 +53,24 @@ bool Snake::Move()
 
 }
 
-bool Snake::Inside( Location loc )
+void Snake::Grow()
+{
+}
+
+const Location Snake::GetSegLoc( int in )
+{
+	if( in >= 0 && in < length )
+	{
+		return segments[in].loc;
+	}
+}
+
+const int Snake::GetLength()
+{
+	return length;
+}
+
+const bool Snake::Inside( Location loc )
 {
 	if( loc.x < 0 || loc.y < 0 || loc.x >= Board::width || loc.y >= Board::height )
 		return false;

@@ -50,6 +50,8 @@ void Game::UpdateModel()
 	snake.UpdateMovement( wnd.kbd );
 	if( !snake.Move() )
 		GameOver = true;
+	if( goal.IsEaten( snake.headloc ) )
+		snake.Grow();
 
 
 }
@@ -58,5 +60,6 @@ void Game::ComposeFrame()
 {
 	brd.DrawBorder();
 	snake.Draw( brd );
+	goal.Draw( brd );
 	
 }

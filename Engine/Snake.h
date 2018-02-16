@@ -16,6 +16,10 @@ public:
 	void const Draw( Board& brd );
 	void UpdateMovement( const Keyboard& kbd );
 	bool Move();
+	void Grow();
+
+	const Location GetSegLoc( int in );
+	const int GetLength();
 
 private:
 	class Segment
@@ -25,7 +29,7 @@ private:
 		Color c;
 	};
 
-	bool Inside( Location loc );
+	const bool Inside( Location loc );
 
 	static constexpr Location startloc = { 0, 0 };
 	static constexpr int maxsegments = 100;
@@ -40,5 +44,6 @@ private:
 	int movecounter;
 
 	Segment segments[100];
+
 
 };
