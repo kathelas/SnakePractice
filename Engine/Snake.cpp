@@ -1,5 +1,7 @@
 #include "Snake.h"
 #include "Keyboard.h"
+#include "Colors.h"
+#include <list>
 
 Snake::Snake()
 {
@@ -11,6 +13,7 @@ Snake::Snake()
 	grow = false;
 	speed = 1.5f;
 	remkey = false;
+	growsize = startgrowsize;
 }
 
 void const Snake::Draw( Board& brd )
@@ -27,23 +30,35 @@ void Snake::UpdateMovement( const Keyboard& kbd )
 	{
 		if( kbd.KeyIsPressed( VK_UP ) )
 		{
-			dloc = { 0, -1 };
-			remkey = true;
+			if( !(dloc == down) )
+			{
+				dloc = up;
+				remkey = true;
+			}
 		}
 		if( kbd.KeyIsPressed( VK_DOWN ) )
 		{
-			dloc = { 0, 1 };
-			remkey = true;
+			if( !(dloc == up) )
+			{
+				dloc = down;
+				remkey = true;
+			}
 		}
 		if( kbd.KeyIsPressed( VK_LEFT ) )
 		{
-			dloc = { -1, 0 };
-			remkey = true;
+			if( !(dloc == right) )
+			{
+				dloc = left;
+				remkey = true;
+			}
 		}
 		if( kbd.KeyIsPressed( VK_RIGHT ) )
 		{
-			dloc = { 1, 0 };
-			remkey = true;
+			if( !(dloc == left) )
+			{
+				dloc = right;
+				remkey = true;
+			}
 		}
 	}
 }
@@ -60,8 +75,13 @@ bool Snake::Move()
 		{
 			segments[length].c = bodycolors[length % 4];
 			length++;
-			speed += 0.1f;
-			grow = false;
+			growsize--;
+			if( growsize == 0 )
+			{
+				speed += speedgrow;
+				grow = false;
+				growsize = startgrowsize;
+			}
 		}
 
 		if( !Inside( segments[0].loc + dloc ) || InsideSelf() )
@@ -97,6 +117,18 @@ const int Snake::GetLength()
 	return length;
 }
 
+const std::list<Location> Snake::GetList()
+{
+	int counter = 0;
+	std::list<Location> mylist( length );
+	for( std::list<Location>::iterator it = mylist.begin(); it != mylist.end(); it++ )
+	{
+		*it = GetSegLoc( counter );
+		counter++;
+	}
+	return mylist;
+}
+
 const bool Snake::Inside( Location loc )
 {
 	if( loc.x < 0 || loc.y < 0 || loc.x >= Board::width || loc.y >= Board::height )
@@ -107,6 +139,8 @@ const bool Snake::Inside( Location loc )
 
 const bool Snake::InsideSelf()
 {
+
+	//special case
 	if( length == 2 )
 	{
 		if( segments[0].loc + dloc == segments[1].loc )
@@ -114,6 +148,7 @@ const bool Snake::InsideSelf()
 			return true;
 		}
 	}
+
 	for( int i = 1; i < length - 1; i++ )
 	{
 		if( segments[0].loc + dloc == segments[i].loc )

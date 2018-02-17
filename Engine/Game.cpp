@@ -52,6 +52,8 @@ void Game::UpdateModel()
 		GameOver = true;
 	if( goal.IsEaten( snake.headloc ) )
 		snake.Grow();
+	while( goal.TestSnake( snake.GetList() ) )
+		goal.NewLoc();
 
 
 }

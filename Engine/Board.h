@@ -5,35 +5,34 @@
 
 class Board
 {
+	//Settings
 public:
-	Board( Graphics& gfx);
-
-	void Draw( Location loc, Color c );
-	void DrawBorder();
-
 	static constexpr int height = 20;
 	static constexpr int width = 20;
-
 private:
-	
-	struct Border
-	{
-		static constexpr int size = 10;
-		static constexpr Color c = { 0, 102, 204 };
-		static constexpr int padding = 5;
-	};
-	
 	//Position of the Board
 	static constexpr int xpos = 100;
 	static constexpr int ypos = 100;
 
 	static constexpr int cellsize = 20;
 	static constexpr int padding = 1;
-	
 
+public:
+	Board( Graphics& gfx);
+
+	void Draw( Location loc, Color c );
+	void DrawBorder();
+
+private:
+	struct Border
+	{
+		//Settings (Border)
+		static constexpr int size = 10;
+		static constexpr Color c = { 0, 102, 204 };
+		static constexpr int padding = 8;
+	};
+	
 	Graphics& gfx;
 	Border brdr;
-
-
 };
 
