@@ -28,7 +28,7 @@ bool Goal::IsEaten( Location locin )
 
 void const Goal::Draw( Board& brd )
 {
-	brd.Draw( loc, c );
+	brd.DrawCircle( loc, c );
 }
 
 bool Goal::TestSnake( std::list<Location> listin )

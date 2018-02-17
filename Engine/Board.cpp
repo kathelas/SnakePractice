@@ -26,6 +26,23 @@ void Board::Draw( Location loc, Color c )
 	}
 }
 
+void Board::DrawCircle( Location loc, Color c )
+{
+	int centerx = xpos + loc.x * cellsize + brdr.size + cellsize / 2;
+	int centery = ypos + loc.y * cellsize + brdr.size + cellsize / 2;
+
+	for( int i = xpos + loc.x * cellsize + padding + brdr.size; i < xpos + loc.x * cellsize + cellsize - padding + brdr.size; i++ )
+	{
+		for( int j = ypos + loc.y * cellsize + padding + brdr.size; j < ypos + loc.y * cellsize + cellsize - padding + brdr.size; j++ )
+		{
+			int xsqr = (int) std::pow( centerx - i, 2 );
+			int ysqr = (int) std::pow( centery - j, 2 );
+			if( xsqr + ysqr <= radiussqr )
+				gfx.PutPixel( i, j, c );
+		}
+	}
+}
+
 
 void Board::DrawBorder()
 {
