@@ -11,8 +11,9 @@ class Snake
 {
 private:
 	//Settings
-	static constexpr int startgrowsize = 2; //number of cells to grow
+	static constexpr int startgrowsize = 2; //number of cells to grow afte eating
 	static constexpr float speedgrow = 0.1f; //change in speed after growing
+	static constexpr float startspeed = 1.5f;
 
 	static constexpr Location startloc = { 0, 0 };
 	static constexpr Color headcolor = Colors::Yellow;

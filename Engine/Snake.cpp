@@ -11,7 +11,7 @@ Snake::Snake()
 	dloc = { 0, 0 };
 	movecounter = 0;
 	grow = false;
-	speed = 1.5f;
+	speed = startspeed;
 	remkey = false;
 	growsize = startgrowsize;
 }
@@ -84,14 +84,17 @@ bool Snake::Move()
 			}
 		}
 
+		//check if inside board or inside self
 		if( !Inside( segments[0].loc + dloc ) || InsideSelf() )
 		{
 			return false;
 		}
 
+		//move the body
 		for( int i = length - 1; i > 0; i-- )
 			segments[i].loc = segments[i - 1].loc;
 
+		//move the head
 		segments[0].loc = segments[0].loc + dloc;
 
 		return true;

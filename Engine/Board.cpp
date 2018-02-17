@@ -9,6 +9,7 @@ Board::Board( Graphics& gfx )
 {
 }
 
+//draws a square
 void Board::Draw( Location loc, Color c )
 {
 	assert( loc.x >= 0 );
@@ -25,7 +26,7 @@ void Board::Draw( Location loc, Color c )
 		}
 	}
 }
-
+//draws a circle
 void Board::DrawCircle( Location loc, Color c )
 {
 	int centerx = xpos + loc.x * cellsize + brdr.size + cellsize / 2;
@@ -42,8 +43,7 @@ void Board::DrawCircle( Location loc, Color c )
 		}
 	}
 }
-
-
+//draws the border of the board
 void Board::DrawBorder()
 {
 	//top

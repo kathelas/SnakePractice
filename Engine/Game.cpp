@@ -46,16 +46,13 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-
 	snake.UpdateMovement( wnd.kbd );
 	if( !snake.Move() )
 		GameOver = true;
 	if( goal.IsEaten( snake.headloc ) )
 		snake.Grow();
-	while( goal.TestSnake( snake.GetList() ) )
+	while( goal.TestSnake( snake.GetList() ) ) //respawns the goal if it spawned inside the snake (weird cause didnt work like i wanted/expected)
 		goal.NewLoc();
-
-
 }
 
 void Game::ComposeFrame()
@@ -63,5 +60,4 @@ void Game::ComposeFrame()
 	brd.DrawBorder();
 	snake.Draw( brd );
 	goal.Draw( brd );
-	
 }
